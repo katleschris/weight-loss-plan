@@ -1,0 +1,17 @@
+.workout-plan {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.workout-plan h2, .workout-plan h3 {
+  margin: 10px 0;
+}
+
+.workout-plan ul {
+  list-style: none;
+  padding: 0;
+}
+
+.workout-plan li {
+  margin: 5px 0;
+}

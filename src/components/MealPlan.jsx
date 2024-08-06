@@ -139,7 +139,7 @@ const MealPlan = () => {
           <MealPlanForDay
             key={day}
             day={day}
-            meals={meals[day]} // Assume meals data is provided or imported
+            meals={meals[day]} 
           />
         )
       ))}
