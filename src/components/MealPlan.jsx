@@ -7,6 +7,17 @@ const imageStyle = {
   objectFit: 'cover',
   marginRight: '10px',
 };
+const mealItemStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  marginBottom: '20px',
+};
+
+const mealTextStyle = {
+  marginTop: '10px',
+  textAlign: 'center',
+};
 
 const meals = {
   Monday: [
@@ -75,9 +86,9 @@ const meals = {
 };
 
 const MealItem = ({ img, alt, text }) => (
-  <li>
+  <li style={mealItemStyle}>
     <img src={img} alt={alt} style={imageStyle} />
-    {text}
+    <span style={mealTextStyle}>{text}</span>
   </li>
 );
 
