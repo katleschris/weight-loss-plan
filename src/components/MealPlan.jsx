@@ -1,5 +1,3 @@
-// src/components/MealPlan.jsx
-import React from 'react';
 import React, { useState } from 'react';
 
 const meals = {
@@ -74,6 +72,7 @@ const imageStyle = {
   objectFit: 'cover',
   marginRight: '10px',
 };
+
 const mealPlanForDayStyle = {
   display: 'flex',
   flexWrap: 'wrap',
@@ -90,7 +89,7 @@ const mealItemStyle = {
   flexDirection: 'column',
   alignItems: 'center',
   marginBottom: '20px',
-  maxWidth: '320px',
+  maxWidth: '300px',
 };
 
 const mealTextStyle = {
@@ -116,13 +115,36 @@ const MealPlanForDay = ({ day, meals }) => (
   </div>
 );
 
-const MealPlan = () => (
-  <div>
-    <h2>Meal Plan</h2>
-    {Object.keys(meals).map(day => (
-      <MealPlanForDay key={day} day={day} meals={meals[day]} />
-    ))}
-  </div>
-);
+const MealPlan = () => {
+  const [selectedDay, setSelectedDay] = useState(null);
+
+  const toggleDay = (day) => {
+    setSelectedDay(selectedDay === day ? null : day);
+  };
+
+  const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+  return (
+    <div>
+      <h2>Meal Plan</h2>
+      <div>
+        {daysOfWeek.map((day) => (
+          <button key={day} onClick={() => toggleDay(day)}>
+            {day}
+          </button>
+        ))}
+      </div>
+      {daysOfWeek.map((day) => (
+        selectedDay === day && (
+          <MealPlanForDay
+            key={day}
+            day={day}
+            meals={meals[day]} // Assume meals data is provided or imported
+          />
+        )
+      ))}
+    </div>
+  );
+};
 
 export default MealPlan;
