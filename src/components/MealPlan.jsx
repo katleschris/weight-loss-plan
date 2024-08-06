@@ -1,23 +1,6 @@
 // src/components/MealPlan.jsx
 import React from 'react';
-
-const imageStyle = {
-  width: '200px',
-  height: '200px',
-  objectFit: 'cover',
-  marginRight: '10px',
-};
-const mealItemStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  marginBottom: '20px',
-};
-
-const mealTextStyle = {
-  marginTop: '10px',
-  textAlign: 'center',
-};
+import React, { useState } from 'react';
 
 const meals = {
   Monday: [
@@ -85,6 +68,36 @@ const meals = {
   ],
 };
 
+const imageStyle = {
+  width: '200px',
+  height: '200px',
+  objectFit: 'cover',
+  marginRight: '10px',
+};
+const mealPlanForDayStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+};
+
+const dayContainerStyle = {
+  flex: '1 0 48%',
+  marginBottom: '20px',
+};
+
+const mealItemStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  marginBottom: '20px',
+  maxWidth: '320px',
+};
+
+const mealTextStyle = {
+  marginTop: '10px',
+  textAlign: 'center',
+};
+
 const MealItem = ({ img, alt, text }) => (
   <li style={mealItemStyle}>
     <img src={img} alt={alt} style={imageStyle} />
@@ -93,9 +106,9 @@ const MealItem = ({ img, alt, text }) => (
 );
 
 const MealPlanForDay = ({ day, meals }) => (
-  <div>
+  <div style={dayContainerStyle}>
     <h3>{day}</h3>
-    <ul>
+    <ul style={mealPlanForDayStyle}>
       {meals.map((meal, index) => (
         <MealItem key={index} {...meal} />
       ))}
