@@ -6,6 +6,7 @@ import MealPlan from './components/MealPlan';
 import Hydration from './components/Hydration';
 import Tips from './components/Tips';
 import GroceryList from './components/GroceryList';
+import WeekendSchedule from './components/WeekendSchedule';
 import './App.css';
 
 const App = () => {
@@ -25,6 +26,8 @@ const App = () => {
         return <Tips />;
       case 'GroceryList':
         return <GroceryList />;
+      case 'WeekendSchedule':
+        return <WeekendSchedule />;
       default:
         return <DailySchedule />;
     }
@@ -39,6 +42,7 @@ const App = () => {
         <button onClick={() => setSection('Hydration')}>Hydration</button>
         <button onClick={() => setSection('Tips')}>Tips</button>
         <button onClick={() => setSection('GroceryList')}>Grocery List</button>
+        <button onClick={() => setSection('WeekendSchedule')}>Weekend Schedule</button>
       </nav>
       <main>{renderSection()}</main>
     </div>
@@ -46,4 +50,3 @@ const App = () => {
 };
 
 export default App;
-
